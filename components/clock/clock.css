@@ -1,5 +1,5 @@
-.weeklyTemp {
-  background: lightgrey;
+.clockContainer {
+  background: lightgray;
   flex: 1;
   margin: 1rem;
   border-radius: 2rem;

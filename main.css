@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+.mainScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .dataScreen {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    display: flex;
+    flex: 9;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+.listData {
+  flex: 2.5;
+  min-width: 75vw;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainData {
+  flex: 1;
+  min-width: 300px;
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
