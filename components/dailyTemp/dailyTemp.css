@@ -1,9 +1,6 @@
 .dailyTemp {
-  border : 1px solid #000;
-}
-
-.square {
-  width: 1rem;
-  height: 1rem;
-  background-color: aqua;
+  background: lightgray;
+  flex: 1;
+  margin: 1rem;
+  border-radius: 2rem;
 }

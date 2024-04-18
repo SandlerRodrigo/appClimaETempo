@@ -6,8 +6,19 @@
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <div component id="dailyTemp"></div>
-  <div component id="weeklyTemp"></div>
+  <div class="mainScreen">
+    <div style="display: flex; flex: 1;" component id="navBar"></div>
+    <div class="dataScreen">
+      <div class="mainData">
+        <div style="display: flex; flex: 4;" component id="dailyTemp"></div>
+        <div style="display: flex; flex: 1;" component id="clock"></div>
+      </div>
+      <div class="listData">
+        <div style="display: flex; flex: 1;" component id="weeklyTemp"></div>
+        <div style="display: flex; flex: 1;"   component id="mainCitiesTemp"></div>
+      </div>
+    </div>
+  </div>
   <script src='componentLoader.js'></script>
   <script src='main.js'></script>
 </head>
