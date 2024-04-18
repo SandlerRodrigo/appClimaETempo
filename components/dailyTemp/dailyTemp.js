@@ -1,1 +1,3 @@
-console.log("dailyTemp.js loaded")
+function getDailyTempData(ListaDados){
+    document.getElementById('temperatura').innerHTML = tempo.list[0].main.temp
+}
