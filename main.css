@@ -26,16 +26,20 @@ body {
 
 .listData {
   flex: 2.5;
-  min-width: 75vw;
-  height: -webkit-fill-available;
+  min-width: 30rem;
+  height: -moz-available; /* For Firefox */
+  height: -webkit-fill-available; /* For Safari and Chrome */
+  height: 100%; /* Fallback for other browsers */
   display: flex;
   flex-direction: column;
 }
 
 .mainData {
   flex: 1;
-  min-width: 300px;
-  height: -webkit-fill-available;
+  min-width: 12rem;
+  height: -moz-available; /* For Firefox */
+  height: -webkit-fill-available; /* For Safari and Chrome */
+  height: 100%; /* Fallback for other browsers */
   display: flex;
   flex-direction: column;
 }
