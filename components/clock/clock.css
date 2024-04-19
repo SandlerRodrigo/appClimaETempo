@@ -1,6 +1,7 @@
 .clockContainer {
-  background: lightgray;
+  background: rgb(238, 238, 238);
   flex: 1;
   margin: 1rem;
   border-radius: 2rem;
+  box-shadow: 0rem 0.4rem 0.6rem black;
 }
