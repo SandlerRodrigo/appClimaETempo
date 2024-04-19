@@ -9,15 +9,102 @@
 
 .upperDiv {
   background: #1469B7;
+  display: flex;
+  flex-direction: column;
   flex: 2;
   border-radius: 2rem;
   z-index: 2;
 }
 
+.city {
+  background: #ff0000;
+  flex: 2;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.aboveLine {
+  background: #008000;
+  display: flex;
+  flex: 5;
+  /* z-index: 3; */
+}
+
+.aboveLine .left {
+  background: rgb(64, 212, 64);
+  flex: 1;
+}
+
+.aboveLine .right {
+  background: rgb(3, 98, 3);
+  flex: 1;
+}
+
+.description {
+  background: #ee82ee;
+  flex: 1;
+}
+
+.bellowLine {
+  display: flex;
+  flex: 4;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.bellowLine .um {
+  background: rgb(166, 166, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-radius: 0 0 0 2rem;
+}
+
+.bellowLine .dois {
+  background-color: rgb(90, 90, 254);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  display: flex;
+}
+
+.bellowLine .tres {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  border-radius: 0 0 2rem 0;
+}
+
 .lowerDiv {
-  background: gray;
+  display: flex;
   flex: 1;
   border-radius: 2rem;
   margin-top: -6rem;
   z-index: 1;
+}
+
+.lowerDiv .left {
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  flex: 1;
+  border-radius: 0 0 0 2rem;
+}
+
+.lowerDiv .right {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  flex: 1;
+  border-radius: 0 0 2rem 0;
 }
