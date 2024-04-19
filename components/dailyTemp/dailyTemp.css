@@ -1,6 +1,23 @@
 .dailyTemp {
   background: lightgray;
+  display: flex;
+  flex-direction: column;
   flex: 1;
   margin: 1rem;
   border-radius: 2rem;
+}
+
+.upperDiv {
+  background: #1469B7;
+  flex: 2;
+  border-radius: 2rem;
+  z-index: 2;
+}
+
+.lowerDiv {
+  background: gray;
+  flex: 1;
+  border-radius: 2rem;
+  margin-top: -6rem;
+  z-index: 1;
 }
