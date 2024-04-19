@@ -1,5 +1,6 @@
 .clockContainer {
   flex: 1;
   margin: 1rem;
+  line-height: 8rem;
   text-align: center;
 }
