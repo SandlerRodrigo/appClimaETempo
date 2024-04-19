@@ -1,13 +1,14 @@
 .clockContainer {
   flex: 1;
+  flex-direction: row;
   margin: 1rem;
   line-height: 8rem;
   text-decoration: solid;
   text-align: center;
 }
 .hour{
-font-size: 3.5rem;
+font-size: 2rem;
 }
 .date{
-
+font-size: 1rem;
 }
