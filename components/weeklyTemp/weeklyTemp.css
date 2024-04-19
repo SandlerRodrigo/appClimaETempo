@@ -1,6 +1,26 @@
-.weeklyTemp {
-  background: lightgrey;
+#weeklyTemp {
+  background: #eeeeee;
   flex: 1;
+  display: flex;
   margin: 1rem;
   border-radius: 2rem;
+}
+
+.block{
+  flex: 1;
+}
+
+.block+div{
+  border-left: 0.08rem solid rgb(68, 68, 68, 0.3);
+}
+
+.day{
+  display: flex;
+  justify-content: center;
+}
+
+.img{
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem;
 }
