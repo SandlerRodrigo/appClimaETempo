@@ -31,6 +31,11 @@
   align-items: end;
   justify-content: center;
   font-size: 2rem;
+  gap: 1rem;
+}
+
+.city .cityPin {
+  transform: scale(1.5);
 }
 
 .aboveLine {
@@ -43,8 +48,12 @@
   /* background: rgb(64, 212, 64); */
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   flex: 1;
+}
+
+.aboveLine .left img {
+  transform: scale(2.5);
 }
 
 .aboveLine .right {
@@ -73,6 +82,10 @@
   flex: 4;
 }
 
+.right .termometro {
+  transform: scale(1.3);
+}
+
 .description {
   /* background: #ee82ee; */
   display: flex;
@@ -91,6 +104,10 @@
   border-image-slice: 1;
 }
 
+.bellowLine img {
+  transform: scale(1.5);
+}
+
 .bellowLine .um {
   /* background: rgb(166, 166, 255); */
   display: flex;
@@ -99,6 +116,7 @@
   justify-content: center;
   flex: 1;
   border-radius: 0 0 0 2rem;
+  gap: 0.7rem;
 }
 
 .bellowLine .dois {
@@ -109,6 +127,7 @@
   justify-content: center;
   flex: 1;
   display: flex;
+  gap: 0.7rem;
 }
 
 .bellowLine .tres {
@@ -120,6 +139,7 @@
   display: flex;
   flex: 1;
   border-radius: 0 0 2rem 0;
+  gap: 0.7rem;
 }
 
 .lowerDiv {
@@ -128,6 +148,15 @@
   border-radius: 2rem;
   margin-top: -6rem;
   z-index: 1;
+  font-size: 2.8rem;
+}
+
+.lowerDiv img {
+  transform: scale(1.5);
+}
+
+.lowerDiv p {
+  color: #716f6f;
 }
 
 .lowerDiv .left {
@@ -138,6 +167,8 @@
   justify-content: end;
   flex: 1;
   border-radius: 0 0 0 2rem;
+  padding-bottom: 2rem;
+  gap: 0.6rem;
 }
 
 .lowerDiv .right {
@@ -148,4 +179,6 @@
   justify-content: end;
   flex: 1;
   border-radius: 0 0 2rem 0;
+  padding-bottom: 2rem;
+  gap: 0.6rem;
 }
