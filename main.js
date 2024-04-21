@@ -2,9 +2,9 @@
 async function loadData() {
     let cords;
     let tempo;
+    await loadComponents()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
-    await loadComponents()
     getDailyTempData(tempo)
 
 }
@@ -13,6 +13,13 @@ loadData()
 
 function fetchData(latitude, longitude) {
     return new Promise((resolve, reject) => {
+        // Verificar se os dados estão armazenados na localStorage e se faz menos de 1h que foram armazenados
+        const weatherData = JSON.parse(localStorage.getItem('weatherData'));
+        const timestamp = localStorage.getItem('timestamp');
+        if (weatherData && timestamp && Date.now() - timestamp < 3600000) {
+            resolve(weatherData);
+            return;
+        }
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=82f32e38c41e40633981ec24dbae5dc1&units=metric`)
             .then(response => {
                 if (!response.ok) {
@@ -21,6 +28,9 @@ function fetchData(latitude, longitude) {
                 return response.json();
             })
             .then(data => {
+                // Armazenar dados na localStorage e timestamp
+                localStorage.setItem('weatherData', JSON.stringify(data));
+                localStorage.setItem('timestamp', Date.now());
                 resolve(data);
             })
             .catch(error => {
