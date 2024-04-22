@@ -1,14 +1,23 @@
 .clockContainer {
   flex: 1;
+  display: flex;
   flex-direction: row;
   margin: 1rem;
-  line-height: 8rem;
   text-decoration: solid;
-  text-align: center;
+  justify-content: center;
 }
 .hour{
-font-size: 2rem;
+font-size: 4rem;
+border-right: solid rgb(199, 199, 199);
+padding-right: 15%;
+line-height: 8rem;
 }
 .date{
 font-size: 1rem;
+padding-left: 14%;
+}
+.day{
+line-height: 2rem;
+padding-top: 2.1rem;
+text-align: center;
 }
