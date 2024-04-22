@@ -5,6 +5,7 @@ async function loadData() {
     await loadComponents()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
+    console.log(tempo)
     getDailyTempData(tempo)
 
 }
