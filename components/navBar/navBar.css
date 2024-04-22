@@ -1,5 +1,34 @@
 .searchBar {
-    background: lightgray;
+    background: linear-gradient(180deg, #1469B7 23%, #003F9D 73%);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
     width: 100vw;
     border-radius: 0 0 2rem 2rem;
+}
+
+.input {
+  padding-left: 2.5rem;
+  align-self: center;
+  border-radius: 6rem;
+  height: 50%;
+  width: 100%;
+  margin-left: 1rem;
+  border: 0;
+}
+
+.gearIcon {
+  margin-right: 1rem;
+  width: 2.5rem;
+  height: auto;
+  transition: all ease-in 0.05s;
+}
+
+.gearIcon:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+.searchIcon {
+  transform: translateX(300%);
 }
