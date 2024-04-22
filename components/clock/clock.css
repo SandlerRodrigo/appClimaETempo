@@ -5,6 +5,7 @@
   margin: 1rem;
   text-decoration: solid;
   justify-content: center;
+  overflow: auto;
 }
 .hour{
 font-size: 4rem;
