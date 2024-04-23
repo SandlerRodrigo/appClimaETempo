@@ -2,11 +2,11 @@
 async function loadData() {
     let cords;
     let tempo;
-    await loadComponents()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
-    console.log(tempo)
+    await loadComponents()
     getDailyTempData(tempo)
+    getWeeklyTempData(tempo)
 
 }
 
