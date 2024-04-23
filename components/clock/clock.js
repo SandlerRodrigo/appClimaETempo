@@ -14,6 +14,6 @@ function getClockData() {
     let mm = d.getMonth();
     let yy = d.getFullYear();
     let gorge = document.getElementById("omed");
-    gorge.innerHTML = dd + "/" + Number(mm + 1) + "/" + yy.slice(2);
+    gorge.innerHTML = dd + "/" + Number(mm + 1) + "/" + yy;
 
 }
