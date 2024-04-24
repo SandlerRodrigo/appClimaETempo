@@ -1,14 +1,44 @@
 .clockContainer {
+  display: flex;
   flex: 1;
   flex-direction: row;
   margin: 1rem;
-  line-height: 8rem;
   text-decoration: solid;
-  text-align: center;
+  justify-content: center;
+  overflow: auto;
+}
+.darkmode .clockContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin: 1rem;
+  text-decoration: solid;
+  justify-content: center;
+  overflow: auto;
+  color:rgb(185, 179, 179);
 }
 .hour{
-font-size: 2rem;
+font-size: 4rem;
+border-right: solid rgb(199, 199, 199);
+padding-right: 14%;
+line-height: 8rem;
 }
 .date{
+display: flex;
+flex-direction: column;
 font-size: 1rem;
+padding-left: 14%;
+}
+.day{
+line-height: 2rem;
+padding-top: 2.1rem;
+text-align: center;
+}
+
+.darkmode .hour{
+font-size: 4rem;
+border-right: solid rgb(73, 72, 72);
+padding-right: 14%;
+color: rgb(185, 179, 179);
+line-height: 8rem;
 }

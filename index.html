@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
   <div class="mainScreen">
-    <div style="display: flex; flex: 1;" component id="navBar"></div>
+    <div style="display: flex; flex: 1; display: flex;
+    flex: 1;
+    position: sticky;
+    top: 0;
+    z-index: 10;" component id="navBar"></div>
     <div class="dataScreen">
       <div class="mainData">
         <div style="display: flex; flex: 4;" component id="dailyTemp"></div>
-        <div style="display: flex; flex: 1;" component id="clock"></div>
+        <div style="display: flex; flex: 1;" component id="clock" class="defaultBg"></div>
       </div>
       <div class="listData">
         <div style="display: flex; flex: 1;" component id="weeklyTemp"></div>
