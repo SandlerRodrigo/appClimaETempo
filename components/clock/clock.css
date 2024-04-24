@@ -24,3 +24,7 @@ line-height: 2rem;
 padding-top: 2.1rem;
 text-align: center;
 }
+
+.darkmode .hour{
+font-size: 4rem;
+}
