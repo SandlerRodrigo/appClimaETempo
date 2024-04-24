@@ -16,8 +16,8 @@ function updateClock() {
     let prima = d.getHours();
     let secu = d.getMinutes();
     let home = document.getElementById("hora");
-    home.innerHTML = formatTime(prima) + ":" + formatTime(secu);
-
+    if (secu <= 9){home.innerHTML = prima + ":0" + secu;}
+    else{home.innerHTML = prima + ":" + secu;}
     let dd = d.getDate();
     let mm = d.getMonth();
     let yy = d.getFullYear();
