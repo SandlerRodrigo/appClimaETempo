@@ -22,7 +22,7 @@
   border-left: 0.08rem solid rgb(68, 68, 68, 0.3);
 }
 
-.day{
+.wtDay{
   display: flex;
   justify-content: center;
   margin: 0;

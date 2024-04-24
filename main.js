@@ -1,10 +1,13 @@
+const API_KEY = "82f32e38c41e40633981ec24dbae5dc1"
 
 async function loadData() {
     let cords;
     let tempo;
+    await loadComponents()
+    getNavBarData()
+    getClockData()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
-    await loadComponents()
     getDailyTempData(tempo)
     getWeeklyTempData(tempo)
 
@@ -21,7 +24,7 @@ function fetchData(latitude, longitude) {
             resolve(weatherData);
             return;
         }
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=82f32e38c41e40633981ec24dbae5dc1&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao obter os dados da API');

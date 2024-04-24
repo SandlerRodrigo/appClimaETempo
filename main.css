@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
+    font-family: 'sora', sans-serif;
   }
   
   .dataScreen {
@@ -47,6 +48,12 @@ body {
 
 .defaultBg {
   background: #EEEEEE;
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+}
+
+.darkmode .defaultBg {
+  background: rgb(48, 48, 48);
   box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
 }
