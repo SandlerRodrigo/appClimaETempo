@@ -8,6 +8,8 @@ async function loadData() {
     getClockData()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
+    getDailyTempData(tempo)
+    getWeeklyTempData(tempo)
 
 }
 

@@ -1,6 +1,75 @@
-.weeklyTemp {
-  background: lightgrey;
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#weeklyTemp {
+  background: #eeeeee;
   flex: 1;
+  display: flex;
   margin: 1rem;
   border-radius: 2rem;
+}
+
+.block{
+  flex: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.block+div{
+  border-left: 0.08rem solid rgb(68, 68, 68, 0.3);
+}
+
+.wtDay{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.img{
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem;
+}
+
+.temp{
+  display: flex;
+  flex: 1;
+  float: left;
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+
+}
+
+
+.wind{
+  filter: contrast(10%);
+  width: 2rem;
+  height: auto;
+  padding: 0.1rem;
+}
+
+.rainChance{
+  filter: contrast(10%);
+  width: 2rem;
+  height: auto;
+  padding: 0.1rem;
+}
+
+.windVel{
+  display: flex;
+  font-size: 0.8rem;
+  float: left;
+}
+
+.rainPer{
+  font-size: 0.8rem;
+  float: left;
+}
+
+.some{
+  display: flex;
+  gap: 1rem;
 }

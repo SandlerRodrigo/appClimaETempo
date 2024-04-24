@@ -3,6 +3,11 @@
 let lastSearches = JSON.parse(localStorage.getItem('lastSearches')) || {};
 
 function getNavBarData() {
+
+  // Impedir que o click no popup feche o popup
+document.getElementById('popup').addEventListener('click', (event) => {
+  event.stopPropagation();
+});
   
   document.getElementById("configIcon").addEventListener("click", onConfigIconClick);
   
@@ -86,10 +91,6 @@ function onConfigIconClick(event) {
   }
 }
 
-// Impedir que o click no popup feche o popup
-document.getElementById('popup').addEventListener('click', (event) => {
-  event.stopPropagation();
-});
 
 
 function updateAutoComplete(searchInput){
