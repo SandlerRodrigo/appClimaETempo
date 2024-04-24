@@ -8,7 +8,8 @@ function getClockData() {
     let prima = d.getHours();
     let secu = d.getMinutes();
     let home = document.getElementById("hora");
-    home.innerHTML = prima + ":" + secu;
+    if (secu <=9){home.innerHTML = prima + ":0" + secu;}
+    else{home.innerHTML = prima + ":" + secu;}
 
     let dd = d.getDate();
     let mm = d.getMonth();
