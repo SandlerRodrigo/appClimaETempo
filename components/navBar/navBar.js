@@ -110,3 +110,13 @@ function updateAutoComplete(searchInput){
 
   localStorage.setItem('lastSearches', JSON.stringify(lastSearches));
 }
+
+function darkMode(){
+  document.getElementById("clock").classList.add("dark");
+  document.getElementsByClassName("defaultBg").classList.add("dark");
+}
+
+function lightMode(){
+  document.getElementById("clock").classList.remove("dark");
+  document.getElementsByClassName("defaultBg").classList.remove("dark");
+}
