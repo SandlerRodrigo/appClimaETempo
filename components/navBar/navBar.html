@@ -1,9 +1,61 @@
 <div class="searchBar">
-  <div style="display: flex; align-items: center; width: 28%;">
-    <img height="15px" class="searchIcon" src="../../images/magnifying-glass-solid.svg" >
-      <input class="input" class type="text" placeholder="Porto Alegre">
+  <div style="width: 100%;">
+    <div style="display: flex; align-items: center; width: 100%; height: 100%;     z-index: 4;
+    position: relative;">
+      <img height="15px" class="searchIcon" src="../../images/magnifying-glass-solid.svg" >
+      <input id="searchTextField" class="searchInput" type="text" placeholder="Porto Alegre">
+    </div>
+    <div class="autoCompleteContainer">
+      <div class="autoComplete" id="autoComplete">
+        <a>teste1</a>
+        <a>teste1</a>
+        <a>teste1</a>
+        <a>teste1</a>
+      </div>
+    </div>
   </div>
   <div style="display: flex; align-items: center;">
-    <img class="gearIcon" src="../../images/gear-solid.svg" >
+    <img id="configIcon" class="gearIcon" src="../../images/gear-solid.svg" >
+  </div>
+    <!-- Popup de Configurações -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2 class="configTitle">Configurações</h2>
+      <h3>Unidade de Temperatura</h3>
+      <div class="radioContainer">
+        <div class="tempRadio">
+          <h1>Cº</h1>
+          <label class="radioLabel"  for="celsius">Celsius</label>
+          <input type="radio" id="celsius" name="temperature" value="C">
+        </div>
+        <div class="tempRadio">
+          <h1>Fº</h1>
+          <label class="radioLabel"  for="fahrenheit">Fahrenheit</label>
+          <input type="radio" id="fahrenheit" name="temperature" value="F" checked>
+        </div>
+        <div class="tempRadio">
+          <h1>Kº</h1>
+          <label class="radioLabel"  for="kelvin">Kelvin</label>
+          <input type="radio" id="kelvin" name="temperature" value="K">
+        </div>
+      </div>
+      <h3>Tema</h3>
+      <div class="radioContainer">
+          <div class="tempRadio">
+            <div style="width: 47%;">
+            <img id="darkIcon" class="themeIcons"  src="../../images/moon-solid.svg" >
+            </div>
+            <label class="radioLabel"  for="kelvin">Escuro</label>
+            <input type="radio" id="dark" name="theme" value="dark">
+          </div>
+          <div class="tempRadio">
+            <div style="width: 80%;">
+              <img id="sunIcon" class="themeIcons"  src="../../images/sun-solid.svg" >
+            </div>
+            <label class="radioLabel" for="kelvin">Claro</label>
+            <input type="radio" id="light" name="theme" checked value="light">
+          </div>
+      </div>
+    </div>
   </div>
 </div>
