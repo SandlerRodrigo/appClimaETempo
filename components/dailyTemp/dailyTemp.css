@@ -5,6 +5,7 @@
   margin: 1rem;
   border-radius: 2rem;
   margin-bottom: -10%;
+  color: #ffffff;
 }
 
 .dailyTemp p {
@@ -152,6 +153,8 @@
   font-size: 2rem;
   padding-top: 20%;
   padding-bottom: 5%;
+  align-items: center;
+  justify-content: center;
 }
 
 .lowerDiv img {
