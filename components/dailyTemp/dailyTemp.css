@@ -1,10 +1,10 @@
 .dailyTemp {
-  background: lightgray;
   display: flex;
   flex-direction: column;
   flex: 1;
   margin: 1rem;
   border-radius: 2rem;
+  margin-bottom: -10%;
 }
 
 .dailyTemp p {
@@ -17,7 +17,8 @@
   background: linear-gradient(180deg, #1469B7 23%, #003F9D 73%);
   display: flex;
   flex-direction: column;
-  flex: 2;
+  width: auto;
+  height: 70%;
   border-radius: 2rem;
   z-index: 2;
 }
@@ -28,10 +29,11 @@
   flex: 2;
   border-radius: 2rem 2rem 0 0;
   color: #ffffff;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   font-size: 2rem;
   gap: 1rem;
+  padding-top: 1.5%;
 }
 
 .city .cityPin {
@@ -41,49 +43,46 @@
 .aboveLine {
   /* background: #008000; */
   display: flex;
-  flex: 5;
 }
 
-.aboveLine .left {
-  /* background: rgb(64, 212, 64); */
+.aboveLine .nuvem {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 5;
 }
 
-.aboveLine .left img {
-  transform: scale(2.5);
+.nuvem img {
+  height: auto;
+  width: 100%;
 }
 
-.aboveLine .right {
-  /* background: rgb(3, 98, 3); */
-  display: flex;
-  flex: 1;
-}
-
-.right .temp {
-  display: flex;
-  flex: 10;
-  align-items: center;
-  font-size: 8rem;
-}
-
-.right .degrees {
-  display: flex;
-  flex: 1;
-  padding-bottom: 7rem;
-}
-
-.right .termometro {
+.aboveLine .temp {
   display: flex;
   align-items: center;
-  justify-content: start;
-  flex: 4;
+  justify-content: center;
+  flex: 3;
+  font-size: 550%;
 }
 
-.right .termometro {
-  transform: scale(1.3);
+.aboveLine .degrees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+  font-size: 2rem;
+}
+
+.aboveLine .termometro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+}
+
+.termometro img {
+  height: auto;
+  width: 150%;
 }
 
 .description {
@@ -92,7 +91,8 @@
   flex: 1;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  padding-bottom: 1.5%;
 }
 
 .bellowLine {
@@ -102,14 +102,15 @@
   border-top: 0.1rem solid #ffffff;
   border-image: linear-gradient(to right, transparent calc(5% - 1px), rgba(211, 211, 211, 0.3) calc(5% - 1px), rgba(211, 211, 211, 0.3) calc(95% + 1px), transparent calc(95% + 1px)) 1;
   border-image-slice: 1;
+  padding-bottom: 1.5%;
 }
 
 .bellowLine img {
-  transform: scale(1.5);
+  height: auto;
+  width: 100%;
 }
 
 .bellowLine .um {
-  /* background: rgb(166, 166, 255); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,7 +121,6 @@
 }
 
 .bellowLine .dois {
-  /* background-color: rgb(90, 90, 254); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,7 +131,6 @@
 }
 
 .bellowLine .tres {
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,13 +145,16 @@
   display: flex;
   flex: 1;
   border-radius: 2rem;
-  margin-top: -6rem;
-  z-index: 1;
-  font-size: 2.8rem;
+  transform: translateY(-20%);
+  width: auto;
+  height: 30%;
+  font-size: 2rem;
+  padding-top: 20%;
 }
 
 .lowerDiv img {
-  transform: scale(1.5);
+  height: auto;
+  width: 100%;
 }
 
 .lowerDiv p {
@@ -160,7 +162,6 @@
 }
 
 .lowerDiv .left {
-  /* background-color: rgb(44, 44, 44); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,7 +173,6 @@
 }
 
 .lowerDiv .right {
-  /* background-color: gray; */
   display: flex;
   flex-direction: column;
   align-items: center;
