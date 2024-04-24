@@ -1,4 +1,13 @@
 const API_KEY = "82f32e38c41e40633981ec24dbae5dc1"
+const mainCityCords = {
+    Londres: [51.5074, -0.1278],
+    Paris: [48.8566, 2.3522],
+    Tokyo: [35.6895, 139.6917],
+    NewYork: [40.7128, -74.0060],
+    XiqueXique: [-9.5373, -42.3588],
+    Pequim: [39.9042, 116.4074],
+}
+
 
 async function loadData() {
     let cords;
@@ -10,6 +19,9 @@ async function loadData() {
     tempo = await fetchData(cords[0], cords[1])
     getDailyTempData(tempo)
     getWeeklyTempData(tempo)
+    mainCitiesTempData = await fetchMainCitiesData()
+    // colocar aqui em baixo o getMainCitiesData() pra pegar os dados
+    console.log(mainCitiesTempData)
 
 }
 
@@ -42,6 +54,34 @@ function fetchData(latitude, longitude) {
             });
     });
 }
+
+async function fetchMainCitiesData() {   
+    let mainCitiesData = JSON.parse(localStorage.getItem('mainCitiesData'));
+    const timestamp = localStorage.getItem('timestamp');
+    if (mainCitiesData && timestamp && Date.now() - timestamp < 3600000) {
+        return mainCitiesData;
+    } 
+    mainCitiesData = {};
+    let mainCityCordsList = Object.keys(mainCityCords);
+    mainCityCordsList.forEach( async (city) => {
+        const [latitude, longitude] = mainCityCords[city];
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
+        const data = await response.json();
+        mainCitiesData[city] = data;
+    } )
+    localStorage.setItem('mainCitiesData', JSON.stringify(mainCitiesData));
+    localStorage.setItem('timestamp', Date.now());
+    return mainCitiesData;
+}
+
+
+
+async function fetchDailyTempData(latitude, longitude) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
+    const data = await response.json();
+    return data;
+
+} 
 
 
 
