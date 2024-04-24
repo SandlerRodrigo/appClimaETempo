@@ -1,18 +1,22 @@
 
 
+let lastSearches = JSON.parse(localStorage.getItem('lastSearches')) || {};
 
 function getNavBarData() {
+  
   document.getElementById("configIcon").addEventListener("click", onConfigIconClick);
-
+  
   // Adiciona um evento de tecla ao input
   const searchInput = document.getElementById('searchTextField');
-
+  
   const autoComplete = document.getElementById('autoComplete');
 
   const popup = document.getElementById('popup');
-
-
-
+  
+  
+  updateAutoComplete(searchInput);
+  
+  
   searchInput.addEventListener('click', function() {
     autoComplete.style.display = "flex";
   });
@@ -36,6 +40,11 @@ function getNavBarData() {
         if (search) {
           searchInput.value = "";
           searchInput.placeholder = search[0].name + ", " + search[0].country;
+          if (Object.keys(lastSearches).length >= 5) {
+            delete lastSearches[Object.keys(lastSearches)[0]];
+          }
+          lastSearches[search[0].name] = search;
+          updateAutoComplete(searchInput);
         }
 
     }
@@ -46,13 +55,17 @@ function getNavBarData() {
 
 
 function searchPlace(name) {
-    return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
+      if (lastSearches[name]) {
+        return lastSearches[name];
+       } 
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${API_KEY}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao obter os dados da API');
                 }
-                return response.json();
+                let result = response.json();
+                return result;
             })
             .then(data => {
                 resolve(data);
@@ -62,9 +75,6 @@ function searchPlace(name) {
             });
     });
 }
-
-
-
 
 
 function onConfigIconClick(event) {
@@ -80,3 +90,23 @@ function onConfigIconClick(event) {
 document.getElementById('popup').addEventListener('click', (event) => {
   event.stopPropagation();
 });
+
+
+function updateAutoComplete(searchInput){
+  const autoComplete = document.getElementById('autoComplete');
+  autoComplete.innerHTML = '';
+  let list  = Object.keys(lastSearches)
+  list.forEach((city) => {
+    const cityElement = document.createElement('a');
+    cityElement.textContent = city + ", " + lastSearches[city][0].country;
+    cityElement.addEventListener('click', () => {
+      searchPlace(city)
+      searchInput.value = "";
+      searchInput.placeholder = city + ", " + lastSearches[city][0].country;
+      autoComplete.style.display = 'none';
+    });
+    autoComplete.appendChild(cityElement);
+  });
+
+  localStorage.setItem('lastSearches', JSON.stringify(lastSearches));
+}
