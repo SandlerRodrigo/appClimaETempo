@@ -2,7 +2,8 @@
 function getDailyTempData(ListaDados) {
     document.querySelector('.city .cityName').innerHTML = ListaDados.city.name;
     document.querySelector('.aboveLine .temp').innerHTML = Math.round(ListaDados.list[0].main.temp);
-    document.querySelector('.description').innerHTML = ListaDados.list[0].weather[0].description;
+    const descriptionFirstUpperCase = ListaDados.list[0].weather[0].description.charAt(0).toUpperCase() + ListaDados.list[0].weather[0].description.slice(1);
+    document.querySelector('.description').innerHTML = descriptionFirstUpperCase;
     document.querySelector('.bellowLine .dois .humidity').innerHTML = ListaDados.list[0].main.humidity + '%';
     document.querySelector('.bellowLine .um .DTwind').innerHTML = Math.round(ListaDados.list[0].wind.speed) + 'm/s';
     document.querySelector('.bellowLine .tres .chuva').innerHTML = 'TBD';
