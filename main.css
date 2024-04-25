@@ -37,7 +37,7 @@ body {
 
 .mainData {
   flex: 1;
-  min-width: 12rem;
+  min-width: 17rem;
   height: -moz-available; /* For Firefox */
   height: -webkit-fill-available; /* For Safari and Chrome */
   height: 100%; /* Fallback for other browsers */
