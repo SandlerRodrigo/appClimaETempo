@@ -36,7 +36,7 @@ function fetchData(latitude, longitude) {
             resolve(weatherData);
             return;
         }
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric&lang=pt_br`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao obter os dados da API');
