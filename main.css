@@ -68,3 +68,7 @@ body {
 .lupacolor {
   filter: contrast(0%) !important;
 }
+
+.textoClaro {
+  color:#ffffff !important;
+}
