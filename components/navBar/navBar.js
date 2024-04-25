@@ -114,10 +114,26 @@ function updateAutoComplete(searchInput){
 
 function darkMode(){
   document.getElementById("clock").classList.add("dark");
-  document.getElementsByClassName("defaultBg").classList.add("dark");
+  document.querySelectorAll(".defaultBg").forEach((po) => {
+    po.classList.add('darks');
+  });
+  document.getElementById("corpo").classList.add("escuridao");
+  document.getElementById("upa").classList.add("maisescuro");
+  document.getElementById("procura").classList.add("maisescuro");
+  document.getElementById("searchTextField").classList.add("darks");
+  document.getElementById("lupa").classList.add("lupacolor");
+
 }
 
 function lightMode(){
   document.getElementById("clock").classList.remove("dark");
-  document.getElementsByClassName("defaultBg").classList.remove("dark");
+  document.querySelectorAll(".defaultBg").forEach((po) => {
+    po.classList.remove('darks');
+  });
+  document.getElementById("corpo").classList.remove("escuridao");
+  document.getElementById("upa").classList.remove("maisescuro");
+  document.getElementById("procura").classList.remove("maisescuro");
+  document.getElementById("searchTextField").classList.remove("darks");
+  document.getElementById("lupa").classList.remove("lupacolor");
+
 }
