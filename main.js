@@ -32,7 +32,7 @@ function fetchData(latitude, longitude) {
         // Verificar se os dados estão armazenados na localStorage e se faz menos de 1h que foram armazenados
         const weatherData = JSON.parse(localStorage.getItem('weatherData'));
         const timestamp = localStorage.getItem('timestamp');
-        if (weatherData && timestamp && Date.now() - timestamp < 3600000) {
+        if (weatherData && weatherData !={} && timestamp && Date.now() - timestamp < 3600000) {
             resolve(weatherData);
             return;
         }
