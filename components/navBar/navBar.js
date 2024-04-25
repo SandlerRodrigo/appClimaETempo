@@ -2,7 +2,7 @@
 
 let lastSearches = JSON.parse(localStorage.getItem('lastSearches')) || {};
 
-function getNavBarData() {
+function getNavBarData(updateDataWithCity) {
 
   // Impedir que o click no popup feche o popup
 document.getElementById('popup').addEventListener('click', (event) => {
@@ -50,6 +50,7 @@ document.getElementById('popup').addEventListener('click', (event) => {
           }
           lastSearches[search[0].name] = search;
           updateAutoComplete(searchInput);
+          updateDataWithCity(search[0].lon, search[0].lat);
         }
 
     }
@@ -104,6 +105,7 @@ function updateAutoComplete(searchInput){
       searchPlace(city)
       searchInput.value = "";
       searchInput.placeholder = city + ", " + lastSearches[city][0].country;
+      updateDataWithCity(lastSearches[city][0].lon, lastSearches[city][0].lat);
       autoComplete.style.display = 'none';
     });
     autoComplete.appendChild(cityElement);

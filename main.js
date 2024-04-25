@@ -13,28 +13,43 @@ async function loadData() {
     let cords;
     let tempo;
     await loadComponents()
-    getNavBarData()
+    getNavBarData(updateDataWithCity)
     getClockData()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
     getDailyTempData(tempo)
     getWeeklyTempData(tempo)
     mainCitiesTempData = await fetchMainCitiesData()
-    // colocar aqui em baixo o getMainCitiesData() pra pegar os dados
-    getMainCitiesDatas(mainCitiesTempData)
     console.log(mainCitiesTempData)
 
 }
 
+async function updateDataWithCity(lon ,   lat) {
+    let data = await fetchData(lat, lon, true)
+    getDailyTempData(data)
+    getWeeklyTempData(data)
+}
+
+
 loadData()
 
-function fetchData(latitude, longitude) {
+function fetchData(latitude, longitude , isChangeOfCity = false) {
     return new Promise((resolve, reject) => {
         // Verificar se os dados estão armazenados na localStorage e se faz menos de 1h que foram armazenados
         const weatherData = JSON.parse(localStorage.getItem('weatherData'));
         const timestamp = localStorage.getItem('timestamp');
-        if (weatherData && weatherData !={} && timestamp && Date.now() - timestamp < 3600000) {
+        if (!isChangeOfCity && weatherData && weatherData !={} && timestamp && Date.now() - timestamp < 3600000) {
             resolve(weatherData);
+            return;
+        }
+        const citiesWeatherData = JSON.parse(localStorage.getItem('citiesWeatherData'));
+        const citiesTimestamp = localStorage.getItem('citiesTimestamp');
+        if (isChangeOfCity && citiesWeatherData && citiesWeatherData[latitude] && 
+            citiesWeatherData[latitude][longitude] && 
+            citiesWeatherData[latitude][longitude] != {} && Date.now() - citiesTimestamp < 3600000) {
+            // Verifica se os dados estao no local storage citiesWeatherData
+            // onde a chave é a latitude e longitude
+            resolve(citiesWeatherData[latitude][longitude]);
             return;
         }
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric&lang=pt_br`)
@@ -48,6 +63,14 @@ function fetchData(latitude, longitude) {
                 // Armazenar dados na localStorage e timestamp
                 localStorage.setItem('weatherData', JSON.stringify(data));
                 localStorage.setItem('timestamp', Date.now());
+                if (isChangeOfCity) {
+                    const citiesWeatherData = JSON.parse(localStorage.getItem('citiesWeatherData')) || {};
+                    citiesWeatherData[latitude] = citiesWeatherData[latitude] || {};
+                    citiesWeatherData[latitude][longitude] = data;
+                    localStorage.setItem('citiesWeatherData', JSON.stringify(citiesWeatherData));
+                    localStorage.setItem('citiesTimestamp', Date.now());
+
+                }
                 resolve(data);
             })
             .catch(error => {
