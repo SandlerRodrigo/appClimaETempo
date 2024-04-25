@@ -4,7 +4,6 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #weeklyTemp {
-  background: #eeeeee;
   flex: 1;
   display: flex;
   margin: 1rem;
