@@ -1,8 +1,7 @@
 function getWeeklyTempData(tempo){
-    console.log(tempo)
     let data
     let i = 0
-    let num = 0
+    let num = 0  
     while(i < 40){
         let data = new Date(tempo.list[i].dt_txt)
         if(data.getHours()%12 == 0 & data.getHours()!=0 || data.getHours()%21 == 0 & data.getHours()!=0 ){        
@@ -31,7 +30,6 @@ function getWeeklyTempData(tempo){
         if(num == 6){
             break;
         }
-        console.log(tempo.list[i].weather[0].id)
         i++
     }
 }

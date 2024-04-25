@@ -21,6 +21,7 @@ async function loadData() {
     getWeeklyTempData(tempo)
     mainCitiesTempData = await fetchMainCitiesData()
     // colocar aqui em baixo o getMainCitiesData() pra pegar os dados
+    getMainCitiesDatas(mainCitiesTempData)
     console.log(mainCitiesTempData)
 
 }
