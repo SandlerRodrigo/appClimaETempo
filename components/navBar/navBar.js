@@ -122,7 +122,7 @@ function darkMode(){
   document.getElementById("procura").classList.add("maisescuro");
   document.getElementById("searchTextField").classList.add("darks");
   document.getElementById("lupa").classList.add("lupacolor");
-
+  document.getElementById("textoTemp").classList.add("textoClaro");
 }
 
 function lightMode(){
@@ -135,5 +135,5 @@ function lightMode(){
   document.getElementById("procura").classList.remove("maisescuro");
   document.getElementById("searchTextField").classList.remove("darks");
   document.getElementById("lupa").classList.remove("lupacolor");
-
+  document.getElementById("TextoTemp").classList.remove("textoClaro");
 }

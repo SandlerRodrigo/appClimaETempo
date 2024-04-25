@@ -184,3 +184,11 @@
   border-radius: 0 0 2rem 0;
   gap: 0.6rem;
 }
+
+#d9 {
+  color:#ffffff !important;
+}
+
+#grande {
+  filter: contrast(0%);
+}
