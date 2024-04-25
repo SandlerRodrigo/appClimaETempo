@@ -58,7 +58,7 @@ function fetchData(latitude, longitude) {
 async function fetchMainCitiesData() {   
     let mainCitiesData = JSON.parse(localStorage.getItem('mainCitiesData'));
     const timestamp = localStorage.getItem('timestamp');
-    if (mainCitiesData && timestamp && Date.now() - timestamp < 3600000) {
+    if (mainCitiesData && mainCitiesData !={} && timestamp && Date.now() - timestamp < 3600000) {
         return mainCitiesData;
     } 
     mainCitiesData = {};
