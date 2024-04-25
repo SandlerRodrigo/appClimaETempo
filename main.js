@@ -58,19 +58,28 @@ function fetchData(latitude, longitude) {
 async function fetchMainCitiesData() {   
     let mainCitiesData = JSON.parse(localStorage.getItem('mainCitiesData'));
     const timestamp = localStorage.getItem('timestamp');
-    if (mainCitiesData && mainCitiesData !={} && timestamp && Date.now() - timestamp < 3600000) {
+    if (mainCitiesData && Object.keys(mainCitiesData).length > 0 && timestamp && Date.now() - timestamp < 3600000) {
         return mainCitiesData;
     } 
+
     mainCitiesData = {};
     let mainCityCordsList = Object.keys(mainCityCords);
-    mainCityCordsList.forEach( async (city) => {
+
+    // Array para armazenar todas as promessas geradas no loop
+    const promises = mainCityCordsList.map(async (city) => {
         const [latitude, longitude] = mainCityCords[city];
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
         const data = await response.json();
         mainCitiesData[city] = data;
-    } )
+    });
+
+    // Aguardar todas as promessas serem resolvidas
+    await Promise.all(promises);
+
+    // Depois que todas as promessas forem resolvidas, salvar no armazenamento local
     localStorage.setItem('mainCitiesData', JSON.stringify(mainCitiesData));
     localStorage.setItem('timestamp', Date.now());
+
     return mainCitiesData;
 }
 
