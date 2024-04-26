@@ -71,7 +71,7 @@ function searchPlace(name) {
       if (lastSearches[name]) {
         return lastSearches[name];
        } 
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${API_KEY}`)
+        fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${API_KEY}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao obter os dados da API');
