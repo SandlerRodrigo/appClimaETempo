@@ -11,6 +11,7 @@ function getNavBarData(updateDataWithCity, updateDataWithUnit, tempo, cityName) 
   const autoComplete = document.getElementById('autoComplete');
   const popup = document.getElementById('popup');
   const configIcon = document.getElementById('configIcon');
+  let form = document.getElementById('searchForm');
 
 
   // ADICIONADNO EVENTOS LISTENERS
@@ -23,22 +24,21 @@ function getNavBarData(updateDataWithCity, updateDataWithUnit, tempo, cityName) 
   });
   configIcon.addEventListener("click", onConfigIconClick);
   
-  searchInput.addEventListener('keydown', async function(event) {
-    if (event.key === "Enter" || event.key === "Return" || event.inputType === "insertLineBreak" || event.inputType === "insertText") {
-         let search = await searchPlace(searchInput.value);
-        if (search) {
-          searchInput.value = "";
-          searchInput.placeholder = search[0].name + ", " + search[0].country;
-          if (Object.keys(lastSearches).length >= 5) {
+form.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Isso impede que a página seja recarregada
+    let search = await searchPlace(searchInput.value);
+    if (search) {
+        searchInput.value = "";
+        searchInput.placeholder = search[0].name + ", " + search[0].country;
+        if (Object.keys(lastSearches).length >= 5) {
             delete lastSearches[Object.keys(lastSearches)[0]];
-          }
-          lastSearches[search[0].name] = search;
-          updateAutoComplete(searchInput);
-          updateDataWithCity(search[0].lon, search[0].lat, search[0].name);
         }
-  
+        lastSearches[search[0].name] = search;
+        updateAutoComplete(searchInput);
+        updateDataWithCity(search[0].lon, search[0].lat, search[0].name);
     }
-  });
+});
+
   document.addEventListener('click', function(event) {
     // Verifica se o clique foi fora do searchInput e do autoComplete
   if (!searchInput.contains(event.target) && !autoComplete.contains(event.target)) {
