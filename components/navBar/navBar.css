@@ -62,7 +62,7 @@
 /* on celphone */
 @media screen and (max-width: 670px) {
     .searchInput {
-width: 80%;
+width: 75%;
     }
     .autoComplete {
         width: 80% !important;

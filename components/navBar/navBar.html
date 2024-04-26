@@ -2,7 +2,7 @@
   <div style="width: 100%;">
     <div style="display: flex; align-items: center; width: 100%; height: 100%;     z-index: 4;
     position: relative;">
-      <img height="15px" class="searchIcon" src="../../images/magnifying-glass-solid.svg" id="lupa">
+      <img height="15px" class="searchIcon" src="images/magnifying-glass-solid.svg" id="lupa">
       <input id="searchTextField" class="searchInput" type="text" placeholder="Porto Alegre">
     </div>
     <div class="autoCompleteContainer">
@@ -11,13 +11,14 @@
     </div>
   </div>
   <div style="display: flex; align-items: center;">
-    <img id="configIcon" class="gearIcon" src="../../images/gear-solid.svg" >
+    <img id="configIcon" class="gearIcon" src="images/gear-solid.svg" >
   </div>
     <!-- Popup de Configurações -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <h2 class="configTitle">Configurações</h2>
-      <h3>Unidade de Temperatura</h3>
+      <h3 style="margin-top: 2rem;
+    margin-bottom: 2rem;">Unidade de Temperatura</h3>
       <div class="radioContainer">
         <div class="tempRadio">
           <h1>Cº</h1>
@@ -35,18 +36,19 @@
           <input type="radio" id="kelvin" name="temperature" value="K">
         </div>
       </div>
-      <h3>Tema</h3>
+      <h3 style="margin-top: 2rem;
+    margin-bottom: 2rem;">Tema</h3>
       <div class="radioContainer">
           <div class="tempRadio">
             <div style="width: 47%;">
-            <img id="darkIcon" class="themeIcons"  src="../../images/moon-solid.svg" >
+            <img id="darkIcon" class="themeIcons"  src="images/moon-solid.svg" >
             </div>
             <label class="radioLabel"  for="kelvin">Escuro</label>
             <input type="radio" id="dark" onclick="darkMode()" name="theme" value="dark">
           </div>
           <div class="tempRadio">
             <div style="width: 80%;">
-              <img id="sunIcon" class="themeIcons"  src="../../images/sun-solid.svg" >
+              <img id="sunIcon" class="themeIcons"  src="images/sun-solid.svg" >
             </div>
             <label class="radioLabel" for="kelvin">Claro</label>
             <input type="radio" id="light" onclick="lightMode()" name="theme" checked value="light">

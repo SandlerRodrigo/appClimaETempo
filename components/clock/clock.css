@@ -13,14 +13,14 @@
 .hour{
 font-size: 4rem;
 border-right: solid rgb(199, 199, 199);
-padding-right: 14%;
+padding-right: 10%;
 line-height: 8rem;
 }
 .date{
 display: flex;
 flex-direction: column;
 font-size: 1rem;
-padding-left: 14%;
+padding-left: 10%;
 }
 .day{
 line-height: 2rem;

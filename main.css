@@ -23,8 +23,50 @@ body {
     flex: 9;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 690px) {
+  /* [02:35, 26/04/2024] Francisco Borba: #weeklyTemp  -> Mudar pra flex -coll
+[02:37, 26/04/2024] Francisco Borba: .listData -> tirar min width
+[02:37, 26/04/2024] Francisco Borba: .block+div -> border bottom
+[02:40, 26/04/2024] Francisco Borba: .lowerDiv -> tirar flex1 e heigth
+[02:46, 26/04/2024] Francisco Borba: .defaultBg ->  flex 0
+[02:46, 26/04/2024] Francisco Borba: .mainData -> heigth auto */
+
+.mainScreen {
+  height: 100% !important;
 }
+#weeklyTemp {
+  flex-direction: column !important;
+}
+.listData {
+  min-width: 0 !important;
+}
+.block+div {
+border-top: 0.08rem solid rgb(68, 68, 68, 0.3) !important;
+border-left: none !important;
+margin-top: 3rem;
+padding-top: 3rem;
+}
+.lowerDiv {
+  flex: 0 !important;
+  height: auto !important;
+}
+.defaultBg {
+  flex: 0 !important;
+}
+.mainData {
+  height: auto  !important;
+}
+
+.dataScreen {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch; 
+}
+.searchBar {
+  height: 5rem;
+}
+}
+
 
 .listData {
   flex: 2.5;

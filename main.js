@@ -21,7 +21,6 @@ async function loadData() {
     getWeeklyTempData(tempo)
     mainCitiesTempData = await fetchMainCitiesData()
     getMainCitiesDatas(mainCitiesTempData)
-    console.log(mainCitiesTempData)
 
 }
 
@@ -121,11 +120,17 @@ async function fetchDailyTempData(latitude, longitude) {
 
 function getGeoLocation() {
     return new Promise((resolve, reject) => {
+        if (localStorage.getItem('latitude') && localStorage.getItem('longitude')) {
+            resolve([localStorage.getItem('latitude'), localStorage.getItem('longitude')]);
+            return;
+        }
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 function (position) {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
+                    localStorage.setItem('latitude', latitude);
+                    localStorage.setItem('longitude', longitude);
 
                     resolve([latitude, longitude]); // Resolvendo a promessa com os valores de latitude e longitude
                 },
