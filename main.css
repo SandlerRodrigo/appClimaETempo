@@ -23,13 +23,7 @@ body {
     flex: 9;
 }
 
-@media screen and (max-width: 690px) {
-  /* [02:35, 26/04/2024] Francisco Borba: #weeklyTemp  -> Mudar pra flex -coll
-[02:37, 26/04/2024] Francisco Borba: .listData -> tirar min width
-[02:37, 26/04/2024] Francisco Borba: .block+div -> border bottom
-[02:40, 26/04/2024] Francisco Borba: .lowerDiv -> tirar flex1 e heigth
-[02:46, 26/04/2024] Francisco Borba: .defaultBg ->  flex 0
-[02:46, 26/04/2024] Francisco Borba: .mainData -> heigth auto */
+@media screen and (max-width: 690px) {  
 .mainScreen {
   height: 100% !important;
 }

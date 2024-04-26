@@ -1,44 +1,29 @@
-
+// TODO: MELHORAR A ORGANIZAÇÃO DO CÓDIGO ADICIONANDO FUNÇÕES PARA CADA EVENT LISTENER
+// EVITANDO FUNÇÕES ANONIMAS LONGAS E COM MULTIPLOS PROPÓSITOS
 
 let lastSearches = JSON.parse(localStorage.getItem('lastSearches')) || {};
 
-function getNavBarData(updateDataWithCity) {
+function getNavBarData(updateDataWithCity, updateDataWithUnit, tempo, cityName) {
 
-  // Impedir que o click no popup feche o popup
-document.getElementById('popup').addEventListener('click', (event) => {
-  event.stopPropagation();
-});
-  
-  document.getElementById("configIcon").addEventListener("click", onConfigIconClick);
-  
-  // Adiciona um evento de tecla ao input
+  // PEGANDO ELEMENTOS DO DOM
+
   const searchInput = document.getElementById('searchTextField');
-  
   const autoComplete = document.getElementById('autoComplete');
-
   const popup = document.getElementById('popup');
-  
-  
-  updateAutoComplete(searchInput);
-  
-  
+  const configIcon = document.getElementById('configIcon');
+
+
+  // ADICIONADNO EVENTOS LISTENERS
+
+  popup.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });  
   searchInput.addEventListener('click', function() {
     autoComplete.style.display = "flex";
   });
-
-  document.addEventListener('click', function(event) {
-    // Verifica se o clique foi fora do searchInput e do autoComplete
-  if (!searchInput.contains(event.target) && !autoComplete.contains(event.target)) {
-    autoComplete.style.display = 'none'; // Esconde o autoComplete
-  }
-  // esconde o pop up do config
-  if (!document.getElementById('configIcon').contains(event.target) && !popup.contains(event.target)) {
-    popup.style.transform = 'scale(0)';
-  }
-});
-
+  configIcon.addEventListener("click", onConfigIconClick);
+  
   searchInput.addEventListener('keydown', async function(event) {
-    // Verifica se a tecla pressionada foi Enter (código 13)
     if (event.key === "Enter" || event.key === "Return" || event.inputType === "insertLineBreak" || event.inputType === "insertText") {
          let search = await searchPlace(searchInput.value);
         if (search) {
@@ -51,14 +36,36 @@ document.getElementById('popup').addEventListener('click', (event) => {
           updateAutoComplete(searchInput);
           updateDataWithCity(search[0].lon, search[0].lat, search[0].name);
         }
-
+  
     }
+  });
+  document.addEventListener('click', function(event) {
+    // Verifica se o clique foi fora do searchInput e do autoComplete
+  if (!searchInput.contains(event.target) && !autoComplete.contains(event.target)) {
+    autoComplete.style.display = 'none'; // Esconde o autoComplete
+  }
+  // esconde o pop up do config
+  if (!document.getElementById('configIcon').contains(event.target) && !popup.contains(event.target)) {
+    popup.style.transform = 'scale(0)';
+  }
 });
+
+
+  // Chama função inicialmente para popular o autoComplete caso haja dados salvos
+  updateAutoComplete(searchInput);
+
+
+  handleUnitChange(updateDataWithUnit, tempo, cityName);
 }
 
 
 
-
+/**
+ * Faz uma requisição a API do OpenWeatherMap para buscar uma cidade
+ * a prtir de um nome passado como parâmetro
+ * @param {string} name - Nome da cidade
+ * @returns {Promise} - Promise com os dados da cidade
+ * */
 function searchPlace(name) {
   return new Promise((resolve, reject) => {
       if (lastSearches[name]) {
@@ -82,6 +89,10 @@ function searchPlace(name) {
 }
 
 
+/**
+ * Função para abrir e fechar o pop up do config
+ * @param {Event} event - Evento de click
+ */
 function onConfigIconClick(event) {
   event.stopPropagation();
   if (popup.style.transform === 'scale(0.8)') {
@@ -92,7 +103,11 @@ function onConfigIconClick(event) {
 }
 
 
-
+/**
+ * Atualiza o autoComplete com as cidades salvas
+ * chamando a função searchPlace para cada cidade no evento de click
+ * @param {HTMLInputElement} searchInput - Input de busca
+ */
 function updateAutoComplete(searchInput){
   const autoComplete = document.getElementById('autoComplete');
   autoComplete.innerHTML = '';
@@ -112,6 +127,26 @@ function updateAutoComplete(searchInput){
 
   localStorage.setItem('lastSearches', JSON.stringify(lastSearches));
 }
+
+
+function handleUnitChange(updateDataWithUnit, tempo, cityName) {
+// Seleciona todos os radio buttons com o name "temperature"
+const radioButtons = document.querySelectorAll('input[name="temperature"]');
+
+// Itera sobre cada radio button e adiciona um event listener para o evento change
+radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', function() {
+        // Quando um radio button for alterado, imprime o valor do radio button selecionado
+        updateDataWithUnit(tempo, this.value, cityName);
+    });
+});
+
+}
+
+
+
+
+// CHANGE MODE DARK/LIGHT
 
 function darkMode(){
   document.getElementById("clock").classList.add("dark");
