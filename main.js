@@ -23,7 +23,7 @@ async function loadData() {
     getNavBarData(updateDataWithCity, updateDataWithUnit, tempo, defaultCity)
     getDailyTempData(tempo, defaultCity)
     getWeeklyTempData(tempo)
-
+    
     // As cidades principais podem ser carregadas após a remoção da tela de carregamento
     // pois não são essenciais para o uso do aplicativo e tendem a demorar mais por se 
     // tratar de várias requisições
@@ -48,14 +48,21 @@ async function updateDataWithCity(lon,lat, cityName) {
 }
 
 
-async function updateDataWithUnit(data , unit, cityName) {
-    // Atualiza os componentes com os novos dados
+async function updateDataWithUnit(data, unit, cityName) {
     let newList = data.list.map(element => {
         return {...element, main: {...element.main, temp: converterTemperatura(element.main.temp, unit)}}
     })
     let newData = {...data, list: newList}
     getDailyTempData(newData, cityName)
     getWeeklyTempData(newData)
+// get mainCitiesData on localStorage
+    let mainCitiesData = JSON.parse(localStorage.getItem('mainCitiesData'));
+    let newMainCitiesData = mainCitiesData
+    let mainCitiesDataList = Object.keys(mainCitiesData)
+    mainCitiesDataList.forEach(city => {
+        newMainCitiesData[city] = {...mainCitiesData[city], main: {...mainCitiesData[city].main, temp: converterTemperatura(mainCitiesData[city].main.temp, unit)}}
+    })
+    getMainCitiesDatas(newMainCitiesData)
 }
 
 
