@@ -137,5 +137,5 @@ function lightMode(){
   document.getElementById("procura").classList.remove("maisescuro");
   document.getElementById("searchTextField").classList.remove("darks");
   document.getElementById("lupa").classList.remove("lupacolor");
-  document.getElementById("TextoTemp").classList.remove("textoClaro");
+  document.getElementById("textoTemp").classList.remove("textoClaro");
 }

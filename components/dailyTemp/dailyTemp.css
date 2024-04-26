@@ -191,4 +191,5 @@
 
 #grande {
   filter: contrast(0%);
+  filter: brightness(70%);
 }
