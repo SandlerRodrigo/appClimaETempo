@@ -1,4 +1,6 @@
 const API_KEY = "82f32e38c41e40633981ec24dbae5dc1"
+const defaultCords = [30.0325, -51.2304]
+const defaultCity = "Porto Alegre"
 const mainCityCords = {
     Londres: [51.5074, -0.1278],
     Paris: [48.8566, 2.3522],
@@ -17,16 +19,16 @@ async function loadData() {
     getClockData()
     cords = await getGeoLocation()
     tempo = await fetchData(cords[0], cords[1])
-    getDailyTempData(tempo)
+    getDailyTempData(tempo, defaultCity)
     getWeeklyTempData(tempo)
     mainCitiesTempData = await fetchMainCitiesData()
     getMainCitiesDatas(mainCitiesTempData)
 
 }
 
-async function updateDataWithCity(lon ,   lat) {
+async function updateDataWithCity(lon,lat, cityName) {
     let data = await fetchData(lat, lon, true)
-    getDailyTempData(data)
+    getDailyTempData(data, cityName)
     getWeeklyTempData(data)
 }
 
@@ -135,20 +137,9 @@ function getGeoLocation() {
                     resolve([latitude, longitude]); // Resolvendo a promessa com os valores de latitude e longitude
                 },
                 function (error) {
-                    switch (error.code) {
-                        case error.PERMISSION_DENIED:
-                            reject("Permissão negada para obter a localização do usuário.");
-                            break;
-                        case error.POSITION_UNAVAILABLE:
-                            reject("Informações de localização indisponíveis.");
-                            break;
-                        case error.TIMEOUT:
-                            reject("Tempo limite expirado ao obter a localização do usuário.");
-                            break;
-                        case error.UNKNOWN_ERROR:
-                            reject("Erro desconhecido ao obter a localização do usuário.");
-                            break;
-                    }
+                    console.error("Erro ao obter a localização do usuário:", error.message);
+                    console.log("Retornando coordenadas padrão...");
+                    resolve(defaultCords); // Retorna as coordenadas padrão em caso de erro
                 }
             );
         } else {

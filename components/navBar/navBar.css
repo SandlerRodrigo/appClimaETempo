@@ -18,7 +18,7 @@
 }
 
 .gearIcon {
-    margin-right: 1rem;
+    margin-right: 3rem;
     width: auto;
     height: 35%;
     transition: all ease-in 0.05s;
@@ -62,7 +62,7 @@
 /* on celphone */
 @media screen and (max-width: 670px) {
     .searchInput {
-width: 75%;
+width: 70%;
     }
     .autoComplete {
         width: 80% !important;

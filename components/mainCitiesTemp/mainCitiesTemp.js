@@ -1,7 +1,5 @@
 function getMainCitiesDatas(data){
-    console.log(data)
     arrayCities = Object.keys(data)
-    console.log(arrayCities)
     let city = arrayCities[0]
     for(i = 0; i < arrayCities.length; i++){
         city = arrayCities[i]
@@ -9,7 +7,6 @@ function getMainCitiesDatas(data){
         document.getElementById("d_day" + i).innerHTML = city
         document.getElementById("d_wind" + i).innerHTML = data[city].wind.speed + "m/s"
         document.getElementById("d_rain" + i).innerHTML = data[city].main.humidity + "%"
-        console.log(data[city].weather[0].id)
         if(data[city].weather[0].id <= 232 & data[city].weather[0].id >= 200){
             document.getElementById("d_img" + i).src =  "images/storm.svg"
         }else if(data[city].weather[0].id <= 321 & data[city].weather[0].id >= 300){

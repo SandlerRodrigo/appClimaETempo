@@ -30,7 +30,6 @@ body {
 [02:40, 26/04/2024] Francisco Borba: .lowerDiv -> tirar flex1 e heigth
 [02:46, 26/04/2024] Francisco Borba: .defaultBg ->  flex 0
 [02:46, 26/04/2024] Francisco Borba: .mainData -> heigth auto */
-
 .mainScreen {
   height: 100% !important;
 }

@@ -39,8 +39,7 @@ document.getElementById('popup').addEventListener('click', (event) => {
 
   searchInput.addEventListener('keydown', async function(event) {
     // Verifica se a tecla pressionada foi Enter (código 13)
-    if (event.key === "Enter") {
-      console.log(searchInput.value)
+    if (event.key === "Enter" || event.key === "Return" || event.inputType === "insertLineBreak" || event.inputType === "insertText") {
          let search = await searchPlace(searchInput.value);
         if (search) {
           searchInput.value = "";
@@ -50,7 +49,7 @@ document.getElementById('popup').addEventListener('click', (event) => {
           }
           lastSearches[search[0].name] = search;
           updateAutoComplete(searchInput);
-          updateDataWithCity(search[0].lon, search[0].lat);
+          updateDataWithCity(search[0].lon, search[0].lat, search[0].name);
         }
 
     }
@@ -105,7 +104,7 @@ function updateAutoComplete(searchInput){
       searchPlace(city)
       searchInput.value = "";
       searchInput.placeholder = city + ", " + lastSearches[city][0].country;
-      updateDataWithCity(lastSearches[city][0].lon, lastSearches[city][0].lat);
+      updateDataWithCity(lastSearches[city][0].lon, lastSearches[city][0].lat, city);
       autoComplete.style.display = 'none';
     });
     autoComplete.appendChild(cityElement);
@@ -124,7 +123,8 @@ function darkMode(){
   document.getElementById("procura").classList.add("maisescuro");
   document.getElementById("searchTextField").classList.add("darks");
   document.getElementById("lupa").classList.add("lupacolor");
-  document.getElementById("textoTemp").classList.add("textoClaro");
+  document.getElementById("textoTempRise").classList.add("textoClaro");
+  document.getElementById("textoTempSet").classList.add("textoClaro");
 }
 
 function lightMode(){
@@ -137,5 +137,6 @@ function lightMode(){
   document.getElementById("procura").classList.remove("maisescuro");
   document.getElementById("searchTextField").classList.remove("darks");
   document.getElementById("lupa").classList.remove("lupacolor");
-  document.getElementById("textoTemp").classList.remove("textoClaro");
+  document.getElementById("textoTempRise").classList.remove("textoClaro");
+  document.getElementById("textoTempSet").classList.remove("textoClaro");
 }
