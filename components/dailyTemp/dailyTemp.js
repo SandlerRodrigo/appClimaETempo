@@ -1,7 +1,7 @@
 // Objective: Get the daily temperature data from the API
 function getDailyTempData(ListaDados, cityName) {
     document.querySelector('.city .cityName').innerHTML = cityName;
-    document.querySelector('.aboveLine .temp').innerHTML = Math.round(ListaDados.list[0].main.temp);
+    document.querySelector('.aboveLine .temp').innerHTML = Math.round(ListaDados.list[0].main.temp) + unidade;
     const descriptionFirstUpperCase = ListaDados.list[0].weather[0].description.charAt(0).toUpperCase() + ListaDados.list[0].weather[0].description.slice(1);
     document.querySelector('.description').innerHTML = descriptionFirstUpperCase;
     document.querySelector('.bellowLine .dois .humidity').innerHTML = ListaDados.list[0].main.humidity + '%';

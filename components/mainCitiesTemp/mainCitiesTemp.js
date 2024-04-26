@@ -3,7 +3,7 @@ function getMainCitiesDatas(data){
     let city = arrayCities[0]
     for(i = 0; i < arrayCities.length; i++){
         city = arrayCities[i]
-        document.getElementById("d_temp" + i).innerHTML = data[city].main.temp + "°"
+        document.getElementById("d_temp" + i).innerHTML = data[city].main.temp + unidade
         document.getElementById("d_day" + i).innerHTML = city
         document.getElementById("d_wind" + i).innerHTML = data[city].wind.speed + "m/s"
         document.getElementById("d_rain" + i).innerHTML = data[city].main.humidity + "%"

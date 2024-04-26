@@ -14,6 +14,10 @@ const mainCityCords = {
  * encontrar a latitude e longitude do usuario e fazer fetch dos dados do tempo
  * e finalmente remover a tela de loading 
  * */
+
+//Variavel para unidade de temperatura
+unidade = "°C"
+
 async function loadData() {
     await loadComponents()
     getClockData()
@@ -207,12 +211,15 @@ function converterTemperatura(temp, unidadeAlvo) {
     // Supondo que 'temp' esteja em graus Celsius (C)
     if (unidadeAlvo === 'F') {
         // Converter para Fahrenheit (F)
+        unidade = "°F"
         return ((temp * 9 / 5) + 32).toFixed(2);
     } else if (unidadeAlvo === 'K') {
         // Converter para Kelvin (K)
+        unidade = "K"
         return (temp + 273.15).toFixed(2);
     }else if(unidadeAlvo == 'C') {
         // Se a unidade alvo for 'C', retornar a temperatura original
+        unidade = "C"
         return temp;
     } else {
         // Se a unidade alvo não for 'f' nem 'k', retornar a temperatura original
