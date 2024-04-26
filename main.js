@@ -219,7 +219,7 @@ function converterTemperatura(temp, unidadeAlvo) {
         return (temp + 273.15).toFixed(2);
     }else if(unidadeAlvo == 'C') {
         // Se a unidade alvo for 'C', retornar a temperatura original
-        unidade = "C"
+        unidade = "°C"
         return temp;
     } else {
         // Se a unidade alvo não for 'f' nem 'k', retornar a temperatura original
