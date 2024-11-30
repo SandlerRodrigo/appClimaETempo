@@ -9,7 +9,7 @@ This project is a basic weather application created to simulate the use of React
 - Minimalist design
 
 ### Demo
-You can view the app live here: [Simple Weather App](https://sandlerrodrigo.github.io/appClimaETempo/)
+You can view the app live here: <a href="https://sandlerrodrigo.github.io/appClimaETempo/" target="_blank">Simple Weather App</a>
 
 ### Example
 Below is a screenshot of the app in action:
